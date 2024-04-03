@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
                       lineHeight: 4,
                       padding: EdgeInsets.symmetric(horizontal: 0),
                       progressColor: kEgyptianBlue,
-                        percent: 3.0,
+                        percent: 1.0,
                         backgroundColor: kWhite,
                     ),
                     SizedBox(height: 16,),
