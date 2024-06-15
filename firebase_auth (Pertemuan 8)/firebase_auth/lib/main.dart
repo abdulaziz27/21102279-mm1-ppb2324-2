@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebaseAuth/bloc/login/login_cubit.dart';
 import 'bloc/register/register_cubit.dart';
-import 'package:firebaseAuth/ui/splash.dart';
 import 'package:firebaseAuth/utils/routes.dart';
 import 'firebase_options.dart';
 

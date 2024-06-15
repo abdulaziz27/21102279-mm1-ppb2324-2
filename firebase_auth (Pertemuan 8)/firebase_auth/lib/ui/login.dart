@@ -1,11 +1,11 @@
-import 'package:firebaseAuth/ui/home_screen.dart';
-import 'package:firebaseAuth/ui/phone_auth_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebaseAuth/bloc/login/login_cubit.dart';
+import 'phone_auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:firebaseAuth/bloc/login/login_cubit.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../utils/routes.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -27,10 +27,10 @@ class _LoginScreenState extends State<LoginScreen> {
       idToken: gAuth.idToken,
     );
     return await FirebaseAuth.instance.signInWithCredential(credential).then(
-        (value) async => await Navigator.pushAndRemoveUntil(
+            (value) async => await Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => HomeScreen()),
-            (route) => false));
+                (route) => false));
   }
 
   @override
@@ -52,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ));
           }
           if (state is LoginSuccess) {
+            // context.read<AuthCubit>().loggedIn();
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(SnackBar(
@@ -165,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       backgroundImage: NetworkImage(
                           'https://freepngimg.com/thumb/business/83615-blue-icons-symbol-telephone-computer-logo.png'),
                     ),
-                  ),
+                  )
                 ],
               ),
               SizedBox(
@@ -173,6 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
+                // Menengahkan elemen horizontal
                 children: [
                   Text("Belum punya akun ?"),
                   TextButton(
